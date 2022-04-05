@@ -1,3 +1,4 @@
+// Loader part
 window.addEventListener('load', () => {
     const loader = document.getElementById('loader');
     setTimeout(() => {
@@ -13,7 +14,6 @@ const burger = document.getElementById('nav');
 const navLists = document.getElementById('nav__lists');
 
 burger.addEventListener('click', () => {
-    navLists.style.transition = 1000;
     navLists.classList.toggle('toggled')
 })
 

@@ -19,10 +19,9 @@ header {
   width: 95%;
   height: 4em;
   margin: auto;
-  position: relative;
 }
 
-.nav_container {
+header .nav_container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -35,10 +34,6 @@ header {
   width: 100%;
   height: 100%;
   position: relative;
-}
-
-.logo {
-  font-size: large;
 }
 
 .logo h2 a {
@@ -60,20 +55,20 @@ header {
           align-items: center;
 }
 
-.nav__list {
+.nav__lists .nav__list {
   list-style: none;
 }
 
-.nav__list a {
-  color: #121314;
+.nav__lists .nav__list a {
+  color: #134f8a;
   text-decoration: none;
 }
 
-.nav__list a:hover {
+.nav__lists .nav__list a:hover {
   color: #1b2725;
 }
 
-a.active {
+.nav__lists .nav__list a.active {
   color: #ffffff;
 }
 
@@ -99,9 +94,10 @@ a.active {
   }
   .nav__lists {
     display: none;
-  }
-  .nav__lists .nav__list:hover {
-    background-color: rgba(52, 73, 72, 0.309);
+    -webkit-transition: -webkit-transform  ease-in 0.7s;
+    transition: -webkit-transform  ease-in 0.7s;
+    transition: transform  ease-in 0.7s;
+    transition: transform  ease-in 0.7s, -webkit-transform  ease-in 0.7s;
   }
   .nav__lists .nav__list {
     padding-top: 1em;
@@ -111,26 +107,28 @@ a.active {
   .nav__lists .nav__list a {
     font-size: 1em;
   }
-  .toggled {
-    display: block;
-    text-align: center;
-    padding: 2.5em 2em 0.8em 0;
-    z-index: 999;
-    position: fixed;
-    top: 0;
-    right: -1em;
-    width: 100%;
-    height: 50em;
-    -webkit-transform: translate(-50% -50%);
-            transform: translate(-50% -50%);
-    background: #654ea3;
-    /* fallback for old browsers */
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-gradient(linear, left top, right top, from(#eaafc8), to(#654ea3));
-    background: linear-gradient(to right, #eaafc8, #654ea3);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    opacity: 0.95;
+  .nav__lists .nav__list:hover {
+    background-color: rgba(52, 73, 72, 0.309);
   }
+}
+
+.toggled {
+  display: block;
+  text-align: center;
+  padding: 2.5em 2em 0.8em 0;
+  z-index: 9000;
+  position: fixed;
+  top: 0;
+  right: -1em;
+  width: 100%;
+  height: 100%;
+  background: #654ea3;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(#eaafc8), to(#654ea3));
+  background: linear-gradient(to right, #eaafc8, #654ea3);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  opacity: 0.95;
 }
 
 @media screen and (min-width: 55em) {
@@ -170,9 +168,11 @@ a.active {
   transition: all ease-in 0.6s;
   position: fixed;
   color: #ffffff;
+  z-index: 8999;
+  /* Safari */
 }
 
-.loader {
+.load-container .loader {
   border: 16px solid #f3f3f3;
   border-radius: 50%;
   border-top: 16px solid #3498db;
@@ -183,7 +183,6 @@ a.active {
   animation: spin 2s linear infinite;
 }
 
-/* Safari */
 @-webkit-keyframes spin {
   0% {
     -webkit-transform: rotate(0deg);
@@ -209,7 +208,7 @@ a.active {
   font-size: 16px;
 }
 
-.container {
+.section_content .container {
   display: -ms-grid;
   display: grid;
   -webkit-box-pack: center;
@@ -220,6 +219,12 @@ a.active {
   gap: 1.5em;
   min-width: calc(90%, 70rem);
   height: 100%;
+}
+
+.section_content .content {
+  -webkit-box-shadow: 0 4px 8px 0 rgba(52, 161, 238, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(52, 161, 238, 0.2);
+  padding: 0.5em 1.5em 0.5em 1.5em;
 }
 
 @media screen and (min-width: 25em) {
@@ -243,52 +248,48 @@ a.active {
   }
 }
 
-.content {
-  -webkit-box-shadow: 0 4px 8px 0 rgba(52, 161, 238, 0.2);
-          box-shadow: 0 4px 8px 0 rgba(52, 161, 238, 0.2);
-  padding: 0.5em 1.5em 0.5em 1.5em;
-}
-
-.image {
+.content .image {
   width: 100%;
-  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 20em;
   border-radius: 0.2em;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.img_info {
+.content .img_info {
   padding: 0 1em 1em 1em;
 }
 
-.img_info #title {
+.content .img_info #title {
   font-size: 0.9em;
   color: rgba(13, 13, 13, 0.966);
 }
 
-.img_info #title .title_child {
+.content .img_info #title .title_child {
   font-size: 1em;
   font-weight: 600;
   color: #7575df;
 }
 
-.content_img__paragraph {
+.content .img_info .content_img__paragraph {
   padding-top: 0.5em;
   font-size: 0.8em;
   font-weight: 300;
 }
 
-.content_img__paragraph .date {
+.content .img_info .content_img__paragraph .date {
   color: deeppink;
 }
 
-.img_info .author {
+.content .img_info .author {
   font-size: 0.9em;
   color: coral;
 }
 
-.img_info .author .time {
+.content .img_info .author .time {
   font-size: 0.6em;
   color: #275ede;
 }

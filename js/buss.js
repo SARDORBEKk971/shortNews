@@ -3,8 +3,8 @@ const urlAll = `https://inshortsapi.vercel.app/news?category=${'business'}`;
 
 const fetchData = async () => {
     const res = await fetch(urlAll);
-    const req = await res.json()
-    let datas = req.data
+    const req = await res.json();
+    let datas = req.data;
     
     const container = document.querySelector('.container');
     datas.map((data) => {

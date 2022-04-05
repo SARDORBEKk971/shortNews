@@ -11,7 +11,7 @@ const fetchData = async () => {
     const container = document.querySelector('.container');
     datas.map((data) => {
         container.insertAdjacentHTML('beforeend', `
-            <div class="content grid-item-1">
+            <div class="content">
                 <img class="image" src="${data.imageUrl}" alt="Relative images">
                 <div class="img_info">
                     <h3 id="title">Title:  
